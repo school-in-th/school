@@ -1,0 +1,10 @@
+*.pyc
+
+.idea
+venv
+
+db.sqlite3
+school/local_settings.py
+static_deploy
+media
+media_private
