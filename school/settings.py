@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'project',
 
     'course',
+
+    'slot',
+    'video',
+    'streaming'
 ]
 
 MIDDLEWARE = [

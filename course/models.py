@@ -29,8 +29,8 @@ class Section(models.Model):
     name = models.CharField(max_length=255)
     duration = models.DurationField(default=datetime.timedelta(0))
 
+    sort = models.SmallIntegerField(default=1, db_index=True)
     is_active = models.BooleanField(default=True, db_index=True)
-    sort = models.IntegerField(default=1, db_index=True)
     datetime_update = models.DateTimeField(auto_now=True, db_index=True)
     datetime_create = models.DateTimeField(auto_now_add=True)
 

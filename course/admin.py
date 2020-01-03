@@ -7,8 +7,20 @@ from .models import Course, Section
 class CourseAdmin(admin.ModelAdmin):
     list_display = ('id', 'project', 'name', 'duration', 'datetime_update')
 
+    def get_readonly_fields(self, request, obj=None):
+        if obj:
+            return ['project', 'datetime_update', 'datetime_create']
+        else:
+            return []
+
 
 @admin.register(Section)
 class SectionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'duration', 'is_active', 'sort', 'datetime_update')
+    list_display = ('id', 'name', 'duration', 'sort', 'is_active', 'datetime_update')
     ordering = ('-datetime_update',)
+
+    def get_readonly_fields(self, request, obj=None):
+        if obj:
+            return ['project', 'datetime_update', 'datetime_create']
+        else:
+            return []
