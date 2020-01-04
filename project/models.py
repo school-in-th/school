@@ -11,6 +11,18 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
+    @staticmethod
+    def pull(code=None):
+        if code is None:
+            project = Project.objects.order_by('id').first()
+            if project is None:
+                project = Project.objects.create(code='school', name='School')
+        else:
+            project = Project.objects.filter(code=code).first()
+            if project is None:
+                project = Project.objects.create(code='school', name='School')
+        return project
+
 
 class User(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
